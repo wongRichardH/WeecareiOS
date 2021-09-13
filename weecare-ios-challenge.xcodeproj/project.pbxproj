@@ -7,20 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CED2A3DA26EFA7DD0093C1F3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3D926EFA7DD0093C1F3 /* Networking.swift */; };
+		CED2A3DE26EFA89C0093C1F3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3DD26EFA89C0093C1F3 /* Request.swift */; };
+		CED2A3E426EFA9610093C1F3 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */; };
+		CED2A3E626EFAA5C0093C1F3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E526EFAA5C0093C1F3 /* Album.swift */; };
+		CED2A3E826EFABD10093C1F3 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E726EFABD10093C1F3 /* APIRequest.swift */; };
+		CED2A3EB26EFB7210093C1F3 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3EA26EFB7210093C1F3 /* APIErrors.swift */; };
+		CED2A3F026F000F60093C1F3 /* TopAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */; };
 		CEE8744A26E818C000A269DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8744926E818C000A269DA /* AppDelegate.swift */; };
 		CEE8744C26E818C000A269DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8744B26E818C000A269DA /* SceneDelegate.swift */; };
-		CEE8744E26E818C000A269DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8744D26E818C000A269DA /* ViewController.swift */; };
-		CEE8745126E818C000A269DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8744F26E818C000A269DA /* Main.storyboard */; };
 		CEE8745326E818C500A269DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE8745226E818C500A269DA /* Assets.xcassets */; };
 		CEE8745626E818C500A269DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8745426E818C500A269DA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CED2A3D926EFA7DD0093C1F3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		CED2A3DD26EFA89C0093C1F3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
+		CED2A3E526EFAA5C0093C1F3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		CED2A3E726EFABD10093C1F3 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		CED2A3EA26EFB7210093C1F3 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
+		CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsViewController.swift; sourceTree = "<group>"; };
 		CEE8744626E818C000A269DA /* weecare-ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weecare-ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE8744926E818C000A269DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE8744B26E818C000A269DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEE8744D26E818C000A269DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEE8745026E818C000A269DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE8745226E818C500A269DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE8745526E818C500A269DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE8745726E818C500A269DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +47,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CED2A3DB26EFA84A0093C1F3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CED2A3E526EFAA5C0093C1F3 /* Album.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CED2A3DC26EFA87F0093C1F3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CED2A3D926EFA7DD0093C1F3 /* Networking.swift */,
+				CED2A3DD26EFA89C0093C1F3 /* Request.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CED2A3E226EFA9450093C1F3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */,
+				CED2A3E726EFABD10093C1F3 /* APIRequest.swift */,
+				CED2A3EA26EFB7210093C1F3 /* APIErrors.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CED2A3ED26F000BF0093C1F3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CED2A3EE26F000E20093C1F3 /* TopAlbums */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CED2A3EE26F000E20093C1F3 /* TopAlbums */ = {
+			isa = PBXGroup;
+			children = (
+				CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */,
+			);
+			path = TopAlbums;
+			sourceTree = "<group>";
+		};
 		CEE8743D26E818C000A269DA = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +109,12 @@
 		CEE8744826E818C000A269DA /* weecare-ios-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				CED2A3E226EFA9450093C1F3 /* API */,
+				CED2A3DC26EFA87F0093C1F3 /* Network */,
+				CED2A3DB26EFA84A0093C1F3 /* Domain */,
+				CED2A3ED26F000BF0093C1F3 /* Scenes */,
 				CEE8744926E818C000A269DA /* AppDelegate.swift */,
 				CEE8744B26E818C000A269DA /* SceneDelegate.swift */,
-				CEE8744D26E818C000A269DA /* ViewController.swift */,
-				CEE8744F26E818C000A269DA /* Main.storyboard */,
 				CEE8745226E818C500A269DA /* Assets.xcassets */,
 				CEE8745426E818C500A269DA /* LaunchScreen.storyboard */,
 				CEE8745726E818C500A269DA /* Info.plist */,
@@ -126,7 +181,6 @@
 			files = (
 				CEE8745626E818C500A269DA /* LaunchScreen.storyboard in Resources */,
 				CEE8745326E818C500A269DA /* Assets.xcassets in Resources */,
-				CEE8745126E818C000A269DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +191,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE8744E26E818C000A269DA /* ViewController.swift in Sources */,
+				CED2A3DA26EFA7DD0093C1F3 /* Networking.swift in Sources */,
+				CED2A3DE26EFA89C0093C1F3 /* Request.swift in Sources */,
+				CED2A3F026F000F60093C1F3 /* TopAlbumsViewController.swift in Sources */,
+				CED2A3E426EFA9610093C1F3 /* ITunesAPI.swift in Sources */,
+				CED2A3E626EFAA5C0093C1F3 /* Album.swift in Sources */,
+				CED2A3EB26EFB7210093C1F3 /* APIErrors.swift in Sources */,
 				CEE8744A26E818C000A269DA /* AppDelegate.swift in Sources */,
+				CED2A3E826EFABD10093C1F3 /* APIRequest.swift in Sources */,
 				CEE8744C26E818C000A269DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +206,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEE8744F26E818C000A269DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEE8745026E818C000A269DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEE8745426E818C500A269DA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

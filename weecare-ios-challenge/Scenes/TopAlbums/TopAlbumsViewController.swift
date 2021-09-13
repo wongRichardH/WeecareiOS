@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  TopAlbumsViewController.swift
 //  weecare-ios-challenge
 //
-//  Created by Alex Livenson on 9/7/21.
+//  Created by Alex Livenson on 9/13/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class TopAlbumsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-    }
-
-
+    }        
 }
-
