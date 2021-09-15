@@ -21,5 +21,4 @@ Your task is to checkout the provided code and provide a submission that accompl
 - Bugfixes & Improvements
 - Testing
 
-If you have any questions about the task or for the client, don't hesitate to email them to your contact at WeeCare. Treat this task as an opportunity to showcase your iOS, engineering, and design strengths. If you want to incorporate a a design pattern  or multi-module project, go for it! Similarly, if you see a compelling case for more functionality or a more refined design, go ahead make those improvements. At the same time, we understand you're busy and expect no more than few hours spent on this submission.
-
+If you have any questions, don't hesitate to email them to your contact at WeeCare. Treat this task as an opportunity to showcase your iOS, engineering, and design strengths. If you want to incorporate a design pattern or multi-module project, go for it! Similarly, if you see a compelling case for more functionality or a more refined design, go ahead and make those improvements. At the same time, we understand you're busy and expect no more than few hours spent on this submission.
