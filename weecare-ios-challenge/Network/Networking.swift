@@ -9,4 +9,5 @@ import Foundation
 
 protocol Networking {
     func requestObject<T: Decodable>(_ request: Request, completion: @escaping (Result<T, Error>) -> ())
+    func requestData(_ request: Request, completion: @escaping (Result<Data, Error>) -> ())
 }

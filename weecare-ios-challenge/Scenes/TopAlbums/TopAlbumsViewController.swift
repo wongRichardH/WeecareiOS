@@ -9,7 +9,9 @@ import UIKit
 
 final class TopAlbumsViewController: UIViewController {
     
+    private let cache = NSCache<NSString, UIImage>()
     private let iTunesAPI: ITunesAPI
+    private let networking: Networking
     private let tableView = UITableView()
     private var albums = [Album]() {
         didSet {
@@ -17,8 +19,9 @@ final class TopAlbumsViewController: UIViewController {
         }
     }
     
-    init(iTunesAPI: ITunesAPI) {
+    init(iTunesAPI: ITunesAPI, networking: Networking) {
         self.iTunesAPI = iTunesAPI
+        self.networking = networking
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,7 +33,6 @@ final class TopAlbumsViewController: UIViewController {
         super.viewDidLoad()
      
         navigationItem.title = "Top Albums"
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(TopAlbumTableViewCell.self, forCellReuseIdentifier: TopAlbumTableViewCell.description())
@@ -47,7 +49,7 @@ final class TopAlbumsViewController: UIViewController {
     }
     
     private func loadData() {
-        iTunesAPI.getTopAlbums { [weak self] res in
+        iTunesAPI.getTopAlbums(limit: 10) { [weak self] res in
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -56,6 +58,13 @@ final class TopAlbumsViewController: UIViewController {
             case .failure(let err):
                 debugPrint(err)
             }
+        }
+    }
+    
+    private func downloadImage(url: String, completion: @escaping (Result<UIImage?, Error>) -> ()) {
+        let request = APIRequest(url: url)
+        networking.requestData(request) { res in
+            completion(res.map { data in UIImage(data: data) })
         }
     }
 }
@@ -71,11 +80,26 @@ extension TopAlbumsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TopAlbumTableViewCell.description(), for: indexPath) as! TopAlbumTableViewCell
         cell.albumLabel.text = album.name
         cell.artistNameLabel.text = album.artistName
+        
+        if let imageURL = album.artworkUrl100 {
+            if let img = cache.object(forKey: album.id as NSString) {
+                cell.albumImageView.image = img
+            } else {
+                downloadImage(url: imageURL) { [weak self, weak cell] res in
+                    switch res {
+                    case .success(let img):
+                        guard let img = img else { return }
+                        self?.cache.setObject(img, forKey: album.id as NSString)
+                        DispatchQueue.main.async {
+                            cell?.albumImageView.image = img
+                        }
+                    case .failure(let err):
+                        debugPrint(err)
+                    }
+                }
+            }
+        }
+        
         return cell
     }
-}
-
-// MARK: - UITableViewDelegate
-extension TopAlbumsViewController: UITableViewDelegate {
-    
 }
