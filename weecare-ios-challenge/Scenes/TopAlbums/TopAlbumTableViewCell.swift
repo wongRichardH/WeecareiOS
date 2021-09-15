@@ -27,9 +27,11 @@ class TopAlbumTableViewCell: UITableViewCell {
     
     private func commonInit() {
         albumImageView.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        albumImageView.contentMode = .scaleToFill
         stackView.axis = .vertical
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(artistNameLabel)
+        stackView.distribution = .fillProportionally
         stackView.spacing = 10
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,6 +42,8 @@ class TopAlbumTableViewCell: UITableViewCell {
             containerView.addSubview($0)
         }
         
+        let albumHeight = albumImageView.heightAnchor.constraint(equalToConstant: 100)
+        albumHeight.priority = .defaultLow
         NSLayoutConstraint.activate([
             // Container View
             containerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -51,7 +55,8 @@ class TopAlbumTableViewCell: UITableViewCell {
             albumImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             albumImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             albumImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            albumImageView.widthAnchor.constraint(equalToConstant: 80),
+            albumImageView.widthAnchor.constraint(equalToConstant: 100),
+            albumHeight,
             
             // Stack
             stackView.leadingAnchor.constraint(equalTo: albumImageView.trailingAnchor, constant: 10),
