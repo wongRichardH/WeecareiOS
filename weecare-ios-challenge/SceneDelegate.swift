@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let w = UIWindow(windowScene: windowScene)
             window = w
             
-            let topAlbumCtrl = TopAlbumsViewController()
+            let network = Network(sessionConfig: URLSessionConfiguration.default)
+            let topAlbumCtrl = TopAlbumsViewController(iTunesAPI: ITunesAPI(network: network))
             let nav = UINavigationController(rootViewController: topAlbumCtrl)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()

@@ -18,6 +18,6 @@ enum HTTPMethod: String {
     case put = "PUT"
 }
 
-protocol Request {
+protocol Request: CustomStringConvertible {
     func asURLRequest() throws -> URLRequest
 }

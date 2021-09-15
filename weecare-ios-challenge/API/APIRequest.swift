@@ -36,4 +36,8 @@ struct APIRequest: Request {
 
         return request
     }
+    
+    var description: String {
+        "\(method) - \(url)"
+    }
 }

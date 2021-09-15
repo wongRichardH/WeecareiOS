@@ -7,21 +7,29 @@
 
 import Foundation
 
+// MARK: - Album
 struct Album: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case image
-        case title
-        case artist
-        case releaseDate = "release_date"
+        case artworkUrl100
+        case artistName
+        case releaseDate
     }
     
-    var id: Int
+    var id: String
     var name: String
-    var image: String
-    var title: String
-    var artist: String
+    var artworkUrl100: String?
+    var artistName: String
     var releaseDate: Date
+}
+
+// MARK: - AlbumFeed
+struct AlbumFeed: Decodable {
+    struct Feed: Decodable {
+        var results: [Album]
+    }
+    
+    var feed: Feed
 }
