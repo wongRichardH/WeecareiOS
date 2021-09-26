@@ -14,12 +14,12 @@ final class TopAlbumsViewController: UIViewController {
     private let networking: Networking
     private let tableView = UITableView()
     private var sectionTitle : String?
-    private var albums = [Album]() {
+
+    private var albumListVM: AlbumListViewModel? {
         didSet {
             tableView.reloadData()
         }
     }
-
     
     init(iTunesAPI: ITunesAPI, networking: Networking) {
         self.iTunesAPI = iTunesAPI
@@ -63,7 +63,8 @@ final class TopAlbumsViewController: UIViewController {
             case .success(let data):
                 DispatchQueue.main.async {
                     self?.sectionTitle = data.feed.title
-                    self?.albums = data.feed.results
+
+                    self?.albumListVM = AlbumListViewModel(albums: data.feed.results)
                 }
             case .failure(let err):
                 debugPrint(err)
@@ -77,17 +78,22 @@ final class TopAlbumsViewController: UIViewController {
             completion(res.map { data in UIImage(data: data) })
         }
     }
-
 }
 
 // MARK: - UITableViewDataSource
 extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        albums.count
+        guard let albumListVM = self.albumListVM else {return 0}
+
+        return albumListVM.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let album = albums[indexPath.row]
+        guard let albumListVM = self.albumListVM,
+              let album = albumListVM.albumAtIndex(indexPath.row) else {
+            return UITableViewCell()
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: TopAlbumTableViewCell.description(), for: indexPath) as! TopAlbumTableViewCell
         cell.albumLabel.text = album.name
         cell.artistNameLabel.text = album.artistName

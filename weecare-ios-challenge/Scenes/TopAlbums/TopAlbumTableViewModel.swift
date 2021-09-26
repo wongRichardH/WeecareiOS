@@ -14,9 +14,13 @@ private enum AlbumSort {
 
 
 struct AlbumListViewModel {
-    var albums: [Album]
+    var albums: [Album]?
 
     var dateFormatter = DateFormatter()
+
+    init(albums: [Album]) {
+        self.albums = albums
+    }
 }
 extension AlbumListViewModel {
 
@@ -25,13 +29,16 @@ extension AlbumListViewModel {
     }
 
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return self.albums.count
+
+        guard let albums = self.albums else {return 0}
+        return albums.count
     }
 
     func albumAtIndex(_ index: Int) -> Album? {
-        guard index >= 0 && index < self.albums.count else {return nil}
+        guard let albums = albums else {return nil}
+        guard index >= 0 && index < albums.count else {return nil}
 
-        return self.albums[index]
+        return albums[index]
     }
 
     private mutating func sortAlbums(albums: [Album], albumSort: AlbumSort) {
