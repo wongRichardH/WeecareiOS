@@ -28,6 +28,7 @@ struct Album: Decodable {
 // MARK: - AlbumFeed
 struct AlbumFeed: Decodable {
     struct Feed: Decodable {
+        var title: String
         var results: [Album]
     }
     
