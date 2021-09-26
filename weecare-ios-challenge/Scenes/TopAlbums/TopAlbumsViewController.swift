@@ -19,6 +19,7 @@ final class TopAlbumsViewController: UIViewController {
             tableView.reloadData()
         }
     }
+
     
     init(iTunesAPI: ITunesAPI, networking: Networking) {
         self.iTunesAPI = iTunesAPI
@@ -76,6 +77,7 @@ final class TopAlbumsViewController: UIViewController {
             completion(res.map { data in UIImage(data: data) })
         }
     }
+
 }
 
 // MARK: - UITableViewDataSource
