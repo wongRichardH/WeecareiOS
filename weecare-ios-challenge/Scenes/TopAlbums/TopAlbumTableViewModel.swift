@@ -7,14 +7,19 @@
 
 import Foundation
 
-private enum AlbumSort {
+enum AlbumSort {
     case alphabetical
 //    case releaseDate
 }
 
+protocol AlbumListViewModelDelegate: AnyObject {
+    func didLoadData(albumListVM: AlbumListViewModel)
+}
 
 struct AlbumListViewModel {
     var albums: [Album]?
+
+    weak var delegate: AlbumListViewModelDelegate?
 
     var dateFormatter = DateFormatter()
 
@@ -41,8 +46,11 @@ extension AlbumListViewModel {
         return albums[index]
     }
 
-    private mutating func sortAlbums(albums: [Album], albumSort: AlbumSort) {
+    mutating func sortAlbums(albumSort: AlbumSort) {
 
+        print("reached delegate!")
+
+        guard let albums = self.albums else {return}
 
         var sortedAlbum = albums
 
@@ -51,14 +59,9 @@ extension AlbumListViewModel {
             sortedAlbum = sortedAlbum.sorted(by: {$0.name < $1.name})
 
 //        case .releaseDate:
-
-
-        default:
-            break
         }
 
-        self.albums = sortedAlbum
+        delegate?.didLoadData(albumListVM: AlbumListViewModel(albums: sortedAlbum))
     }
-
 }
 

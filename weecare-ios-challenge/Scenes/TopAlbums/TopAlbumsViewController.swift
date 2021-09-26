@@ -18,6 +18,7 @@ final class TopAlbumsViewController: UIViewController {
     private var albumListVM: AlbumListViewModel? {
         didSet {
             tableView.reloadData()
+            albumListVM?.delegate = self
         }
     }
     
@@ -37,6 +38,7 @@ final class TopAlbumsViewController: UIViewController {
         navigationItem.title = "Top Albums"
 
         setupTableView()
+        setupFilterButton()
         loadData()
     }
 
@@ -55,6 +57,16 @@ final class TopAlbumsViewController: UIViewController {
             tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+
+    private func setupFilterButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(addTapped))
+    }
+
+    @objc func addTapped() {
+        guard var albumListVM = albumListVM else {return}
+
+        albumListVM.sortAlbums(albumSort: .alphabetical)
     }
     
     private func loadData() {
@@ -80,7 +92,14 @@ final class TopAlbumsViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - AlbumListViewModelDelegate
+extension TopAlbumsViewController: AlbumListViewModelDelegate {
+    func didLoadData(albumListVM: AlbumListViewModel) {
+        self.albumListVM = albumListVM
+    }
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let albumListVM = self.albumListVM else {return 0}
