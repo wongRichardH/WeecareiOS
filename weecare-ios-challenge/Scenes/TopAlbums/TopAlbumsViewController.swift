@@ -17,7 +17,11 @@ final class TopAlbumsViewController: UIViewController {
 
     private var albumListVM: AlbumListViewModel? {
         didSet {
-            tableView.reloadData()
+//            tableView.reloadData()
+            UIView.transition(with: tableView,
+                              duration: 0.35,
+                              options: .transitionCrossDissolve,
+                              animations: { self.tableView.reloadData() })
             albumListVM?.delegate = self
         }
     }
@@ -103,9 +107,7 @@ extension TopAlbumsViewController {
         guard var albumListVM = albumListVM else {return}
 
         albumListVM.sortAlbums(albumSort: .releaseDate)
-
     }
-
 }
 
 // MARK: - AlbumListViewModelDelegate
@@ -170,5 +172,9 @@ extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 350
     }
 }

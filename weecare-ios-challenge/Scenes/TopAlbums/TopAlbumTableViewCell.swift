@@ -12,10 +12,27 @@ class TopAlbumTableViewCell: UITableViewCell {
     let albumImageView = UIImageView()
     let containerView = UIView()
     let stackView = UIStackView()
-    let albumLabel = UILabel()
-    let artistNameLabel = UILabel()
-
-    let releaseDateLabel = UILabel()
+    let albumLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.italicSystemFont(ofSize: 36)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    let artistNameLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.monospacedSystemFont(ofSize: 24, weight: .heavy)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+    let releaseDateLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.monospacedSystemFont(ofSize: 18, weight: .light)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,16 +43,24 @@ class TopAlbumTableViewCell: UITableViewCell {
         super.init(coder: coder)
         commonInit()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        albumImageView.makeRounded()
+    }
     
     private func commonInit() {
         albumImageView.backgroundColor = .lightGray.withAlphaComponent(0.5)
         albumImageView.contentMode = .scaleToFill
+
         stackView.axis = .vertical
+        stackView.addArrangedSubview(albumImageView)
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(artistNameLabel)
         stackView.addArrangedSubview(releaseDateLabel)
         stackView.distribution = .fillProportionally
-        stackView.spacing = 10
+        stackView.alignment = .center
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(containerView)
@@ -45,32 +70,32 @@ class TopAlbumTableViewCell: UITableViewCell {
             containerView.addSubview($0)
         }
         
-        let albumHeight = albumImageView.heightAnchor.constraint(equalToConstant: 100)
-        albumHeight.priority = .defaultLow
+        let albumHeight = albumImageView.heightAnchor.constraint(equalToConstant: 200)
+        let albumWidth = albumImageView.widthAnchor.constraint(equalToConstant: 200)
+
         NSLayoutConstraint.activate([
             // Container View
-            containerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            containerView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
 
-            // ImageView
-            albumImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            albumImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            albumImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            albumImageView.widthAnchor.constraint(equalToConstant: 100),
+            //Album Image View
+            albumImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            albumImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
             albumHeight,
-            
+            albumWidth,
+
             // Stack
-            stackView.leadingAnchor.constraint(equalTo: albumImageView.trailingAnchor, constant: 10),
-            stackView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            containerView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 10)
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: albumImageView.bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
     }
 
     func configure(with album: Album) {
-        self.albumLabel.text = album.name
+        self.albumLabel.text = "\"\(album.name)\""
         self.artistNameLabel.text = album.artistName
         self.releaseDateLabel.text = album.releaseDate
     }
