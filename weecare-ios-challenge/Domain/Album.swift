@@ -22,7 +22,7 @@ struct Album: Decodable {
     var name: String
     var artworkUrl100: String?
     var artistName: String
-    var releaseDate: Date
+    var releaseDate: String
 }
 
 // MARK: - AlbumFeed

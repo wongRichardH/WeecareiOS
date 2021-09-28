@@ -38,7 +38,7 @@ final class TopAlbumsViewController: UIViewController {
         navigationItem.title = "Top Albums"
 
         setupTableView()
-        setupFilterButton()
+        setupFilterButtons()
         loadData()
     }
 
@@ -59,24 +59,21 @@ final class TopAlbumsViewController: UIViewController {
         ])
     }
 
-    private func setupFilterButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(addTapped))
+    private func setupFilterButtons() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(sortAlphabeticalButtonTapped))
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sort Date", style: .plain, target: self, action: #selector(sortReleaseDateButtonTapped))
     }
 
-    @objc func addTapped() {
-        guard var albumListVM = albumListVM else {return}
-
-        albumListVM.sortAlbums(albumSort: .alphabetical)
-    }
-    
     private func loadData() {
         iTunesAPI.getTopAlbums(limit: 10) { [weak self] res in
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
                     self?.sectionTitle = data.feed.title
-
                     self?.albumListVM = AlbumListViewModel(albums: data.feed.results)
+
+                    print(data.feed.results)
                 }
             case .failure(let err):
                 debugPrint(err)
@@ -90,6 +87,25 @@ final class TopAlbumsViewController: UIViewController {
             completion(res.map { data in UIImage(data: data) })
         }
     }
+
+}
+
+
+//MARK: - Button UI Functions
+extension TopAlbumsViewController {
+
+    @objc func sortAlphabeticalButtonTapped() {
+        guard var albumListVM = albumListVM else {return}
+        albumListVM.sortAlbums(albumSort: .alphabetical)
+    }
+
+    @objc func sortReleaseDateButtonTapped() {
+        guard var albumListVM = albumListVM else {return}
+
+        albumListVM.sortAlbums(albumSort: .releaseDate)
+
+    }
+
 }
 
 // MARK: - AlbumListViewModelDelegate
