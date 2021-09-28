@@ -130,8 +130,8 @@ extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: TopAlbumTableViewCell.description(), for: indexPath) as! TopAlbumTableViewCell
-        cell.albumLabel.text = album.name
-        cell.artistNameLabel.text = album.artistName
+
+        cell.configure(with: album)
         
         if let imageURL = album.artworkUrl100 {
             if let img = cache.object(forKey: album.id as NSString) {

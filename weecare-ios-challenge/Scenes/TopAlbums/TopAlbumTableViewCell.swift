@@ -15,6 +15,8 @@ class TopAlbumTableViewCell: UITableViewCell {
     let albumLabel = UILabel()
     let artistNameLabel = UILabel()
 
+    let releaseDateLabel = UILabel()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -31,6 +33,7 @@ class TopAlbumTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(artistNameLabel)
+        stackView.addArrangedSubview(releaseDateLabel)
         stackView.distribution = .fillProportionally
         stackView.spacing = 10
         
@@ -64,5 +67,11 @@ class TopAlbumTableViewCell: UITableViewCell {
             stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             containerView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 10)
         ])
+    }
+
+    func configure(with album: Album) {
+        self.albumLabel.text = album.name
+        self.artistNameLabel.text = album.artistName
+        self.releaseDateLabel.text = album.releaseDate
     }
 }
