@@ -34,6 +34,15 @@ class TopAlbumTableViewCell: UITableViewCell {
         return label
     }()
 
+    let recentAlbumImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "bookmark-81-32.png")
+        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.red
+        imageView.isHidden = true
+        return imageView
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -60,17 +69,22 @@ class TopAlbumTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(releaseDateLabel)
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
-        
+
         containerView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(containerView)
+
+
         
-        [albumImageView, stackView].forEach {
+        [albumImageView, stackView, recentAlbumImageView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             containerView.addSubview($0)
         }
-        
+
         let albumHeight = albumImageView.heightAnchor.constraint(equalToConstant: 200)
         let albumWidth = albumImageView.widthAnchor.constraint(equalToConstant: 200)
+
+        let recentImageViewHeight = recentAlbumImageView.heightAnchor.constraint(equalToConstant: 30)
+        let recentImageViewWidth = recentAlbumImageView.widthAnchor.constraint(equalToConstant: 30)
 
         NSLayoutConstraint.activate([
             // Container View
@@ -78,6 +92,12 @@ class TopAlbumTableViewCell: UITableViewCell {
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+
+            //Recent Album Release Image
+            recentAlbumImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            recentAlbumImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            recentImageViewWidth,
+            recentImageViewHeight,
 
             // Album Image View
             albumImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
@@ -106,8 +126,10 @@ class TopAlbumTableViewCell: UITableViewCell {
         if let date = DateConverter().convertDatesWithUniqueFormatter(dateString: releaseDate) {
             if Calendar.current.isDateInThisWeek(date) {
                 label.backgroundColor = UIColor.red
+                recentAlbumImageView.isHidden = false
             } else {
                 label.backgroundColor = UIColor.white
+                recentAlbumImageView.isHidden = true
             }
         }
     }
