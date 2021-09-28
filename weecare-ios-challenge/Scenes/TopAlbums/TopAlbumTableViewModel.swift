@@ -18,10 +18,9 @@ protocol AlbumListViewModelDelegate: AnyObject {
 
 struct AlbumListViewModel {
     var albums: [Album]?
+    var dateFormatter = DateConverter()
 
     weak var delegate: AlbumListViewModelDelegate?
-
-    var dateFormatter = DateFormatter()
 
     init(albums: [Album]) {
         self.albums = albums
@@ -72,9 +71,8 @@ extension AlbumListViewModel {
 
         for eachAlbum in albums {
             let isoDate = eachAlbum.releaseDate
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            if let date = dateFormatter.date(from:isoDate) {
+
+            if let date = dateFormatter.convertDatesWithUniqueFormatter(dateString: isoDate) {
                 tupleAlbumDate.append((eachAlbum, date))
             }
         }
@@ -89,10 +87,6 @@ extension AlbumListViewModel {
         }
 
         return sortedReleaseAlbum
-    }
-
-    mutating func sortRelease(albumSort: AlbumSort) {
-
     }
 }
 

@@ -46,7 +46,6 @@ class TopAlbumTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-
         albumImageView.makeRounded()
     }
     
@@ -80,7 +79,7 @@ class TopAlbumTableViewCell: UITableViewCell {
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
 
-            //Album Image View
+            // Album Image View
             albumImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             albumImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
             albumHeight,
@@ -98,5 +97,18 @@ class TopAlbumTableViewCell: UITableViewCell {
         self.albumLabel.text = "\"\(album.name)\""
         self.artistNameLabel.text = album.artistName
         self.releaseDateLabel.text = album.releaseDate
+
+        determineAlbumRecencyLabel(label: albumLabel, releaseDate: album.releaseDate)
+    }
+
+    // Highlights corresponding UILabel if release date is within a week
+    func determineAlbumRecencyLabel(label: UILabel, releaseDate: String) {
+        if let date = DateConverter().convertDatesWithUniqueFormatter(dateString: releaseDate) {
+            if Calendar.current.isDateInThisWeek(date) {
+                label.backgroundColor = UIColor.red
+            } else {
+                label.backgroundColor = UIColor.white
+            }
+        }
     }
 }
