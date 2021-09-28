@@ -126,9 +126,11 @@ class TopAlbumTableViewCell: UITableViewCell {
         if let date = DateConverter().convertDatesWithUniqueFormatter(dateString: releaseDate) {
             if Calendar.current.isDateInThisWeek(date) {
                 label.backgroundColor = UIColor.red
+                label.textColor = UIColor.white
                 recentAlbumImageView.isHidden = false
             } else {
                 label.backgroundColor = UIColor.white
+                label.textColor = UIColor.black
                 recentAlbumImageView.isHidden = true
             }
         }
