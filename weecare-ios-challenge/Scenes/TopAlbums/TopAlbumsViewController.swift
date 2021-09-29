@@ -17,7 +17,6 @@ final class TopAlbumsViewController: UIViewController {
 
     private var albumListVM: AlbumListViewModel? {
         didSet {
-//            tableView.reloadData()
             UIView.transition(with: tableView,
                               duration: 0.35,
                               options: .transitionCrossDissolve,

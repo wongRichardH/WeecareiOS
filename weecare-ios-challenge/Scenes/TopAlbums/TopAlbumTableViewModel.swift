@@ -26,6 +26,8 @@ struct AlbumListViewModel {
         self.albums = albums
     }
 }
+
+//MARK: -- TableView functions
 extension AlbumListViewModel {
 
     var numberOfSections: Int {
@@ -46,7 +48,6 @@ extension AlbumListViewModel {
     }
 
     mutating func sortAlbums(albumSort: AlbumSort) {
-
         guard let albums = self.albums else {return}
 
         var sortedAlbum = albums
