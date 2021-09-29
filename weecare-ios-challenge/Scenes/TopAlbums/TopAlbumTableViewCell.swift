@@ -74,7 +74,6 @@ class TopAlbumTableViewCell: UITableViewCell {
         contentView.addSubview(containerView)
 
 
-        
         [albumImageView, stackView, recentAlbumImageView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             containerView.addSubview($0)
@@ -108,7 +107,7 @@ class TopAlbumTableViewCell: UITableViewCell {
             // Stack
             stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: albumImageView.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 5),
             stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
     }

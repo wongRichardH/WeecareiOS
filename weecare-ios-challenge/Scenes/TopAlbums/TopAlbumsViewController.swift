@@ -75,8 +75,6 @@ final class TopAlbumsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.sectionTitle = data.feed.title
                     self?.albumListVM = AlbumListViewModel(albums: data.feed.results)
-
-                    print(data.feed.results)
                 }
             case .failure(let err):
                 debugPrint(err)
@@ -90,9 +88,7 @@ final class TopAlbumsViewController: UIViewController {
             completion(res.map { data in UIImage(data: data) })
         }
     }
-
 }
-
 
 //MARK: - Button UI Functions
 extension TopAlbumsViewController {
