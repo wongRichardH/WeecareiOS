@@ -40,12 +40,17 @@ final class TopAlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Top Albums"
-
-//        setupTableView()
+        setupNavigationBar()
         setupCollectionView()
         setupFilterButtons()
         loadData()
+    }
+
+    func setupNavigationBar() {
+        navigationItem.title = "Top Albums"
+        navigationController?.navigationBar.barTintColor = UIColor.black
+
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 
 //    private func setupTableView() {
