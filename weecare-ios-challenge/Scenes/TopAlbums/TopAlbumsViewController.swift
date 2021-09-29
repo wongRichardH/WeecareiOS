@@ -51,7 +51,7 @@ final class TopAlbumsViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(TopAlbumTableViewCell.self, forCellReuseIdentifier: TopAlbumTableViewCell.description())
         tableView.register(TopAlbumTableViewHeader.self,
-               forHeaderFooterViewReuseIdentifier: "sectionHeader")
+                           forHeaderFooterViewReuseIdentifier: Constants.CellIdentifiers.TopAlbumsViewControllerTableHeader)
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
@@ -158,7 +158,7 @@ extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                       "sectionHeader") as! TopAlbumTableViewHeader
+                                                                Constants.CellIdentifiers.TopAlbumsViewControllerTableHeader) as! TopAlbumTableViewHeader
 
         if let sectionTitle = self.sectionTitle {
             view.title.text = sectionTitle

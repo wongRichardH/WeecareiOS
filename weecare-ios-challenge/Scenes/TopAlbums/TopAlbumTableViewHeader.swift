@@ -45,7 +45,7 @@ class TopAlbumTableViewHeader: UITableViewHeaderFooterView {
    }
 
     func configureFontStyle() {
-        title.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.largeTitle)
+        title.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
     }
 
 }

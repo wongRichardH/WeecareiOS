@@ -36,7 +36,7 @@ class TopAlbumTableViewCell: UITableViewCell {
 
     let recentAlbumImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "bookmark-81-32.png")
+        imageView.image = UIImage(named: Constants.ImageAssets.Bookmark)
         imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.red
         imageView.isHidden = true
