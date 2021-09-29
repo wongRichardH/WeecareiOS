@@ -14,6 +14,7 @@
 		79D3706C2702FD7D0014332A /* WeeCare + Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D3706B2702FD7D0014332A /* WeeCare + Calendar.swift */; };
 		79D370712703BF130014332A /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D370702703BF130014332A /* bookmark.png */; };
 		79D370732703F3DE0014332A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D370722703F3DE0014332A /* Constants.swift */; };
+		79D37075270515130014332A /* TopAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D37074270515130014332A /* TopAlbumCollectionViewCell.swift */; };
 		CED2A3DA26EFA7DD0093C1F3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3D926EFA7DD0093C1F3 /* Networking.swift */; };
 		CED2A3DE26EFA89C0093C1F3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3DD26EFA89C0093C1F3 /* Request.swift */; };
 		CED2A3E426EFA9610093C1F3 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */; };
@@ -37,6 +38,7 @@
 		79D3706B2702FD7D0014332A /* WeeCare + Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeeCare + Calendar.swift"; sourceTree = "<group>"; };
 		79D370702703BF130014332A /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
 		79D370722703F3DE0014332A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		79D37074270515130014332A /* TopAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		CED2A3D926EFA7DD0093C1F3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		CED2A3DD26EFA89C0093C1F3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */,
 				7920CEFF270005850053367D /* TopAlbumTableViewHeader.swift */,
 				7920CF01270024CD0053367D /* TopAlbumTableViewModel.swift */,
+				79D37074270515130014332A /* TopAlbumCollectionViewCell.swift */,
 			);
 			path = TopAlbums;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				79D370732703F3DE0014332A /* Constants.swift in Sources */,
 				CED2A3DE26EFA89C0093C1F3 /* Request.swift in Sources */,
 				7920CF02270024CD0053367D /* TopAlbumTableViewModel.swift in Sources */,
+				79D37075270515130014332A /* TopAlbumCollectionViewCell.swift in Sources */,
 				CED2A3F026F000F60093C1F3 /* TopAlbumsViewController.swift in Sources */,
 				79D3706C2702FD7D0014332A /* WeeCare + Calendar.swift in Sources */,
 				CED2A3F226F00DD20093C1F3 /* TopAlbumTableViewCell.swift in Sources */,
