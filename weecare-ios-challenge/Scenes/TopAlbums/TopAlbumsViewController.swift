@@ -12,9 +12,7 @@ final class TopAlbumsViewController: UIViewController {
     private let cache = NSCache<NSString, UIImage>()
     private let iTunesAPI: ITunesAPI
     private let networking: Networking
-//    private let tableView = UITableView()
     private var sectionTitle : String?
-
     private var collectionView: UICollectionView!
 
     private var albumListVM: AlbumListViewModel? {
@@ -53,25 +51,7 @@ final class TopAlbumsViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 
-//    private func setupTableView() {
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.register(TopAlbumTableViewCell.self, forCellReuseIdentifier: TopAlbumTableViewCell.description())
-//        tableView.register(TopAlbumTableViewHeader.self,
-//                           forHeaderFooterViewReuseIdentifier: Constants.CellIdentifiers.TopAlbumsViewControllerTableHeader)
-//        view.addSubview(tableView)
-//
-//        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//        ])
-//    }
-
     private func setupCollectionView() {
-
         let cellHeight = view.frame.size.height/3
         let cellWidth = (view.frame.width/2 - 15)
 
@@ -95,7 +75,6 @@ final class TopAlbumsViewController: UIViewController {
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-
     }
 
     private func setupFilterButtons() {
@@ -128,7 +107,6 @@ final class TopAlbumsViewController: UIViewController {
 
 //MARK: - Button UI Functions
 extension TopAlbumsViewController {
-
     @objc func sortAlphabeticalButtonTapped() {
         guard var albumListVM = albumListVM else {return}
         albumListVM.sortAlbums(albumSort: .alphabetical)
@@ -136,7 +114,6 @@ extension TopAlbumsViewController {
 
     @objc func sortReleaseDateButtonTapped() {
         guard var albumListVM = albumListVM else {return}
-
         albumListVM.sortAlbums(albumSort: .releaseDate)
     }
 }
@@ -189,72 +166,6 @@ extension TopAlbumsViewController: UICollectionViewDataSource {
                 }
             }
         }
-
         return cell
-
     }
-
-
 }
-
-//// MARK: - UITableViewDataSource, UITableViewDelegate
-//extension TopAlbumsViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let albumListVM = self.albumListVM else {return 0}
-//
-//        return albumListVM.numberOfRowsInSection(section)
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let albumListVM = self.albumListVM,
-//              let album = albumListVM.albumAtIndex(indexPath.row) else {
-//            return UITableViewCell()
-//        }
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: TopAlbumTableViewCell.description(), for: indexPath) as! TopAlbumTableViewCell
-//
-//        cell.configure(with: album)
-//
-//        if let imageURL = album.artworkUrl100 {
-//            if let img = cache.object(forKey: album.id as NSString) {
-//                cell.albumImageView.image = img
-//            } else {
-//                downloadImage(url: imageURL) { [weak self, weak cell] res in
-//                    switch res {
-//                    case .success(let img):
-//                        guard let img = img else { return }
-//                        self?.cache.setObject(img, forKey: album.id as NSString)
-//                        DispatchQueue.main.async {
-//                            cell?.albumImageView.image = img
-//                        }
-//                    case .failure(let err):
-//                        debugPrint(err)
-//                    }
-//                }
-//            }
-//        }
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-//                                                                Constants.CellIdentifiers.TopAlbumsViewControllerTableHeader) as! TopAlbumTableViewHeader
-//
-//        if let sectionTitle = self.sectionTitle {
-//            view.title.text = sectionTitle
-//        } else {
-//            view.title.text =  "loading ..."
-//        }
-//
-//       return view
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 350
-//    }
-//}
