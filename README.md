@@ -48,3 +48,11 @@ and things I would love to work on more given time:
 1. Dedicated drop down menu for filter options instead of using bar items inside of UINavigation
 2. Dynamic height calculation for cells
 
+
+-------------------------------------------------
+UPDATE Sept. 29, 2021 - RICHARD WONG
+-------------------------------------------------
+
+- Made UI more similar to design specs
+- Removed unused files
+- Added dropdown filter class to improve previous bar button items
