@@ -18,6 +18,7 @@
 		79D370792705291D0014332A /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D370782705291D0014332A /* InsetLabel.swift */; };
 		79D3707B2705357B0014332A /* sliderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D3707A2705357B0014332A /* sliderIcon.png */; };
 		79D3707D270535B50014332A /* slider50.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D3707C270535B50014332A /* slider50.png */; };
+		79D3707F270536AE0014332A /* UIViewStackButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D3707E270536AE0014332A /* UIViewStackButtons.swift */; };
 		CED2A3DA26EFA7DD0093C1F3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3D926EFA7DD0093C1F3 /* Networking.swift */; };
 		CED2A3DE26EFA89C0093C1F3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3DD26EFA89C0093C1F3 /* Request.swift */; };
 		CED2A3E426EFA9610093C1F3 /* ITunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */; };
@@ -45,6 +46,7 @@
 		79D370782705291D0014332A /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		79D3707A2705357B0014332A /* sliderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderIcon.png; sourceTree = "<group>"; };
 		79D3707C270535B50014332A /* slider50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider50.png; sourceTree = "<group>"; };
+		79D3707E270536AE0014332A /* UIViewStackButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewStackButtons.swift; sourceTree = "<group>"; };
 		CED2A3D926EFA7DD0093C1F3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		CED2A3DD26EFA89C0093C1F3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CED2A3E326EFA9610093C1F3 /* ITunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAPI.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		CEE8743D26E818C000A269DA = {
 			isa = PBXGroup;
 			children = (
+				79D3707E270536AE0014332A /* UIViewStackButtons.swift */,
 				CEE8744826E818C000A269DA /* weecare-ios-challenge */,
 				CEE8744726E818C000A269DA /* Products */,
 			);
@@ -282,6 +285,7 @@
 				CEE8744A26E818C000A269DA /* AppDelegate.swift in Sources */,
 				79D370682702EBEB0014332A /* WeeCare + UIImageView.swift in Sources */,
 				CED2A3E826EFABD10093C1F3 /* APIRequest.swift in Sources */,
+				79D3707F270536AE0014332A /* UIViewStackButtons.swift in Sources */,
 				CEE8744C26E818C000A269DA /* SceneDelegate.swift in Sources */,
 				79D3706A2702FAE40014332A /* DateConverter.swift in Sources */,
 			);

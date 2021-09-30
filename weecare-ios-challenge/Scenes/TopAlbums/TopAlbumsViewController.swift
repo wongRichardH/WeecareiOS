@@ -14,10 +14,26 @@ final class TopAlbumsViewController: UIViewController {
     private let networking: Networking
     private var sectionTitle : String?
     private var collectionView: UICollectionView!
+    private var filterView: UIViewStackButtons!
+    private var isFilterShowing: Bool = false
 
     private var filterImage: UIImage = {
         let filterImage = UIImage(named: Constants.ImageAssets.Slider)
         return filterImage!
+    }()
+
+    let sortAlphabeticalButton: UIButton = {
+        let abcButton = UIButton(frame: .zero)
+        abcButton.setTitle("Sort ABC", for: .normal)
+        abcButton.addTarget(self, action: #selector(sortAlphabeticalButtonTapped), for: .touchUpInside)
+        return abcButton
+    }()
+
+    let sortDateButton: UIButton = {
+        let sortDateButton = UIButton(frame: .zero)
+        sortDateButton.setTitle("Sort Date", for: .normal)
+        sortDateButton.addTarget(self, action: #selector(sortReleaseDateButtonTapped), for: .touchUpInside)
+        return sortDateButton
     }()
 
     private var albumListVM: AlbumListViewModel? {
@@ -46,6 +62,8 @@ final class TopAlbumsViewController: UIViewController {
         setupNavigationBar()
         setupCollectionView()
         setupFilterButtons()
+        setupFilterView()
+
         loadData()
     }
 
@@ -83,12 +101,25 @@ final class TopAlbumsViewController: UIViewController {
     }
 
     private func setupFilterButtons() {
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(sortAlphabeticalButtonTapped))
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(toggleFilterTapped))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sort Date", style: .plain, target: self, action: #selector(sortReleaseDateButtonTapped))
+    func setupFilterView() {
+
+        let filterWidth = 100.0
+        let filterHeight = 75.0
+
+        let filterFrame = CGRect(x: Double(UIScreen.main.bounds.size.width) - filterWidth - 10, y: filterHeight, width: filterWidth, height: filterHeight)
+
+        let buttonArray = [sortAlphabeticalButton, sortDateButton]
+
+        let filterView = UIViewStackButtons(frame: filterFrame)
+        filterView.configure(with: buttonArray)
+        self.filterView = filterView
+        self.filterView.isHidden = true
+
+        view.addSubview(self.filterView)
     }
 
     private func loadData() {
@@ -117,7 +148,8 @@ final class TopAlbumsViewController: UIViewController {
 extension TopAlbumsViewController {
 
     @objc func toggleFilterTapped() {
-        print("print print print")
+        isFilterShowing = !isFilterShowing
+        filterView.isHidden = !isFilterShowing
     }
 
     @objc func sortAlphabeticalButtonTapped() {
