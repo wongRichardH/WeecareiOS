@@ -98,7 +98,6 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
         }
 
         let albumHeight = albumImageView.heightAnchor.constraint(equalToConstant: 150)
-        let albumWidth = albumImageView.widthAnchor.constraint(equalToConstant: 150)
 
         let newAlbumLabelHeight = newAlbumLabel.heightAnchor.constraint(equalToConstant: 15)
         let newAlbumLabelWidth = newAlbumLabel.widthAnchor.constraint(equalToConstant: 30)
@@ -121,7 +120,6 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
             albumImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
             albumImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             albumHeight,
-            albumWidth,
 
             // Stack
             stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
