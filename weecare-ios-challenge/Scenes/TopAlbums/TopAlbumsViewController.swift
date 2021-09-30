@@ -101,7 +101,20 @@ final class TopAlbumsViewController: UIViewController {
     }
 
     private func setupFilterButtons() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(toggleFilterTapped))
+
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        menuBtn.setImage(filterImage.withRenderingMode(.alwaysTemplate), for: .normal)
+        menuBtn.addTarget(self, action: #selector(toggleFilterTapped), for: .touchUpInside)
+        menuBtn.tintColor = UIColor.white
+
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+
+        navigationItem.rightBarButtonItem = menuBarItem
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 

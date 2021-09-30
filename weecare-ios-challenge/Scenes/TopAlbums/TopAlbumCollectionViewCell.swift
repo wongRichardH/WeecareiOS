@@ -10,7 +10,6 @@ import UIKit
 
 class TopAlbumCollectionViewCell: UICollectionViewCell {
 
-
     let albumImageView = UIImageView()
 
     let containerView: UIView = {
@@ -28,17 +27,11 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .left
         return label
     }()
+
     let artistNameLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.monospacedSystemFont(ofSize: 12, weight: .heavy)
         label.numberOfLines = 2
-        label.textAlignment = .left
-        return label
-    }()
-    let releaseDateLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.monospacedSystemFont(ofSize: 12, weight: .light)
-        label.numberOfLines = 1
         label.textAlignment = .left
         return label
     }()
@@ -59,7 +52,6 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
 
         return label
     }()
-
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -94,7 +86,6 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(artistNameLabel)
-        stackView.addArrangedSubview(releaseDateLabel)
         stackView.distribution = .fillProportionally
         stackView.alignment = .leading
 
@@ -145,21 +136,16 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
     func configure(with album: Album) {
         self.albumLabel.text = "\"\(album.name)\""
         self.artistNameLabel.text = album.artistName
-        self.releaseDateLabel.text = album.releaseDate
 
-        determineAlbumRecencyLabel(label: albumLabel, releaseDate: album.releaseDate)
+        determineAlbumRecencyLabel(releaseDate: album.releaseDate)
     }
 
     // Highlights corresponding UILabel if release date is within a week
-    func determineAlbumRecencyLabel(label: UILabel, releaseDate: String) {
+    func determineAlbumRecencyLabel(releaseDate: String) {
         if let date = DateConverter().convertDatesWithUniqueFormatter(dateString: releaseDate) {
             if Calendar.current.isDateInThisWeek(date) {
-                label.backgroundColor = UIColor.red
-                label.textColor = UIColor.white
                 newAlbumLabel.isHidden = false
             } else {
-                label.backgroundColor = UIColor.white
-                label.textColor = UIColor.black
                 newAlbumLabel.isHidden = true
             }
         }
