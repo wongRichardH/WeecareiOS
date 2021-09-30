@@ -88,7 +88,7 @@ final class TopAlbumsViewController: UIViewController {
 
         collectionView.backgroundColor = UIColor(red: 0.27, green: 0.27, blue: 0.27, alpha: 1.00)
 
-        collectionView.register(TopAlbumCollectionViewCell.self, forCellWithReuseIdentifier: "default")
+        collectionView.register(TopAlbumCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CellIdentifiers.AlbumsCollectionViewCell)
 
         view.addSubview(collectionView)
 
@@ -202,7 +202,7 @@ extension TopAlbumsViewController: UICollectionViewDataSource {
 
        }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "default", for: indexPath) as! TopAlbumCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.AlbumsCollectionViewCell, for: indexPath) as! TopAlbumCollectionViewCell
 
         cell.configure(with: album)
 

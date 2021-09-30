@@ -8,7 +8,7 @@
 struct Constants {
 
     struct CellIdentifiers {
-        static let TopAlbumsViewControllerTableHeader = "TopAlbumsViewControllerTableHeader"
+        static let AlbumsCollectionViewCell = "AlbumsCollectionViewCell"
     }
 
     struct ImageAssets {

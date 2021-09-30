@@ -103,8 +103,6 @@ class TopAlbumCollectionViewCell: UICollectionViewCell {
         let newAlbumLabelHeight = newAlbumLabel.heightAnchor.constraint(equalToConstant: 15)
         let newAlbumLabelWidth = newAlbumLabel.widthAnchor.constraint(equalToConstant: 30)
 
-
-
         NSLayoutConstraint.activate([
             // Container View
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),

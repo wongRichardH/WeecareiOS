@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7920CF00270005850053367D /* TopAlbumTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7920CEFF270005850053367D /* TopAlbumTableViewHeader.swift */; };
 		7920CF02270024CD0053367D /* TopAlbumTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7920CF01270024CD0053367D /* TopAlbumTableViewModel.swift */; };
 		79D370682702EBEB0014332A /* WeeCare + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D370672702EBEB0014332A /* WeeCare + UIImageView.swift */; };
 		79D3706A2702FAE40014332A /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D370692702FAE40014332A /* DateConverter.swift */; };
@@ -26,7 +25,6 @@
 		CED2A3E826EFABD10093C1F3 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3E726EFABD10093C1F3 /* APIRequest.swift */; };
 		CED2A3EB26EFB7210093C1F3 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3EA26EFB7210093C1F3 /* APIErrors.swift */; };
 		CED2A3F026F000F60093C1F3 /* TopAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */; };
-		CED2A3F226F00DD20093C1F3 /* TopAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3F126F00DD20093C1F3 /* TopAlbumTableViewCell.swift */; };
 		CED2A3F526F017330093C1F3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2A3F426F017330093C1F3 /* Network.swift */; };
 		CEE8744A26E818C000A269DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8744926E818C000A269DA /* AppDelegate.swift */; };
 		CEE8744C26E818C000A269DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8744B26E818C000A269DA /* SceneDelegate.swift */; };
@@ -35,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7920CEFF270005850053367D /* TopAlbumTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumTableViewHeader.swift; sourceTree = "<group>"; };
 		7920CF01270024CD0053367D /* TopAlbumTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumTableViewModel.swift; sourceTree = "<group>"; };
 		79D370672702EBEB0014332A /* WeeCare + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeeCare + UIImageView.swift"; sourceTree = "<group>"; };
 		79D370692702FAE40014332A /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
@@ -54,7 +51,6 @@
 		CED2A3E726EFABD10093C1F3 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CED2A3EA26EFB7210093C1F3 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsViewController.swift; sourceTree = "<group>"; };
-		CED2A3F126F00DD20093C1F3 /* TopAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumTableViewCell.swift; sourceTree = "<group>"; };
 		CED2A3F426F017330093C1F3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CEE8744626E818C000A269DA /* weecare-ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weecare-ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE8744926E818C000A269DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,9 +147,7 @@
 		CED2A3EE26F000E20093C1F3 /* TopAlbums */ = {
 			isa = PBXGroup;
 			children = (
-				CED2A3F126F00DD20093C1F3 /* TopAlbumTableViewCell.swift */,
 				CED2A3EF26F000F60093C1F3 /* TopAlbumsViewController.swift */,
-				7920CEFF270005850053367D /* TopAlbumTableViewHeader.swift */,
 				7920CF01270024CD0053367D /* TopAlbumTableViewModel.swift */,
 				79D37074270515130014332A /* TopAlbumCollectionViewCell.swift */,
 			);
@@ -276,8 +270,6 @@
 				79D37075270515130014332A /* TopAlbumCollectionViewCell.swift in Sources */,
 				CED2A3F026F000F60093C1F3 /* TopAlbumsViewController.swift in Sources */,
 				79D3706C2702FD7D0014332A /* WeeCare + Calendar.swift in Sources */,
-				CED2A3F226F00DD20093C1F3 /* TopAlbumTableViewCell.swift in Sources */,
-				7920CF00270005850053367D /* TopAlbumTableViewHeader.swift in Sources */,
 				CED2A3E426EFA9610093C1F3 /* ITunesAPI.swift in Sources */,
 				CED2A3F526F017330093C1F3 /* Network.swift in Sources */,
 				CED2A3E626EFAA5C0093C1F3 /* Album.swift in Sources */,
