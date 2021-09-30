@@ -15,6 +15,11 @@ final class TopAlbumsViewController: UIViewController {
     private var sectionTitle : String?
     private var collectionView: UICollectionView!
 
+    private var filterImage: UIImage = {
+        let filterImage = UIImage(named: Constants.ImageAssets.Slider)
+        return filterImage!
+    }()
+
     private var albumListVM: AlbumListViewModel? {
         didSet {
             UIView.transition(with: collectionView,
@@ -78,7 +83,10 @@ final class TopAlbumsViewController: UIViewController {
     }
 
     private func setupFilterButtons() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(sortAlphabeticalButtonTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort ABC", style: .plain, target: self, action: #selector(sortAlphabeticalButtonTapped))
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(toggleFilterTapped))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sort Date", style: .plain, target: self, action: #selector(sortReleaseDateButtonTapped))
     }
@@ -107,6 +115,11 @@ final class TopAlbumsViewController: UIViewController {
 
 //MARK: - Button UI Functions
 extension TopAlbumsViewController {
+
+    @objc func toggleFilterTapped() {
+        print("print print print")
+    }
+
     @objc func sortAlphabeticalButtonTapped() {
         guard var albumListVM = albumListVM else {return}
         albumListVM.sortAlbums(albumSort: .alphabetical)

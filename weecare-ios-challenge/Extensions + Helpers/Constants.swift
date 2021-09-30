@@ -13,6 +13,7 @@ struct Constants {
 
     struct ImageAssets {
         static let Bookmark = "bookmark"
+        static let Slider = "slider50"
     }
 
     //MARK -- Add additional nested Structs as needed to keep project clean.
